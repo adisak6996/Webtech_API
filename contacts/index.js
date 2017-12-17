@@ -12,7 +12,7 @@ var contacts = [
     {id: 3, name: 'Phongsatorn', surname: 'Poapan', email: '58160576@go.buu.ac.th', phone: '123-456-7890', url: 'www.google.com', notes: 'Knows nothing.'},
   ]
 
-  // get contacts all
+  // get contacts 
 app.get('/contacts', (req, res) => {
     res.json(contacts)
 })
