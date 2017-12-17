@@ -25,62 +25,44 @@ app.post('/contacts',(req,res) => {
 
 // get contact information
 app.get('/contacts/:id', (req, res) => {
-    let flag = true
+   
     for (let i = 0; i < contacts.length; i++) {
         if(req.params.id == contacts[i].id){
-            flag = false
+            
             res.json(contacts[i])
         }  
-    }
-    if(flag){
-        res.json("Don't success")
     }
 })
 
 
 //update contact information
 app.put('/contacts/:id',(req,res)=>{
-    let flag = true
     for (let i = 0; i < contacts.length; i++) {
         if(req.params.id == contacts[i].id){
-            flag = false
             contacts[i] = req.body
             res.json("Update contact information")
         }
-    }
-    if(flag){
-        res.json("Don't Success")
     }
 
 })
 
 // remove contact from list
 app.delete('/contacts/:id',(req,res)=>{
-    let flag = true
     for (let i = 0; i < contacts.length; i++) {
         if(req.params.id == contacts[i].id){
-            flag = false
             contactList.splice(i,1)
             res.json("Remove contact from list")
         }
-    }
-    if(flag){
-        res.json("Don't Success")
     }
 })
 
 
 // search contact by name
 app.get('/contacts/:name', (req, res) => {
-    let flag = true
     for (let i = 0; i < contacts.length; i++) {
         if(req.params.name == contacts[i].name){
-            flag = false
             res.json(contacts[i])
         } 
-    }
-    if(flag){
-        res.json("Not found contacts")
     }
 })
 
